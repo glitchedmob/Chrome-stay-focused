@@ -68,7 +68,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
-module.exports = __webpack_require__(2);
+module.exports = __webpack_require__(5);
 
 
 /***/ }),
@@ -77,10 +77,101 @@ module.exports = __webpack_require__(2);
 
 "use strict";
 
+Object.defineProperty(exports, "__esModule", { value: true });
+const store_1 = __webpack_require__(2);
+const view_1 = __webpack_require__(3);
+const controller_1 = __webpack_require__(4);
+const store = new store_1.default();
+const view = new view_1.default();
+const controller = new controller_1.default(store, view);
 
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+class Store {
+    constructor() {
+        this.sites = [
+            "youtube",
+            "facebook",
+            "twitter",
+            "reddit",
+            "quora",
+            "news.ycombinator",
+            "instagram",
+            "linkedin",
+            "netflix",
+            "plex",
+            "learnandgrow",
+            "twitch"
+        ];
+    }
+}
+exports.default = Store;
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+class View {
+    constructor() {
+        this.rootEl = document.querySelector('html');
+    }
+    /**
+     * Completly empties the DOM and sets the background to white
+     */
+    emptyDOM() {
+        this.rootEl.innerHTML = '';
+        this.rootEl.setAttribute('style', 'background-color: #FFF');
+    }
+    /**
+     * Injects our app into the DOM
+     */
+    addApp() {
+        this.emptyDOM();
+        const title = document.createElement('title');
+        title.textContent = "Blocked!";
+        document.head.appendChild(title);
+    }
+}
+exports.default = View;
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+class Controller {
+    constructor(store, view) {
+        this.store = store;
+        this.view = view;
+        this.blockSites();
+    }
+    blockSites() {
+        for (let site of this.store.sites) {
+            if (window.location.href.includes(site)) {
+                this.view.addApp();
+                return;
+            }
+        }
+    }
+}
+exports.default = Controller;
+
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "../css/app.css";

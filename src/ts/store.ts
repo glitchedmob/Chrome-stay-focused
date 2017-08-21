@@ -1,3 +1,16 @@
 export default class Store {
-	public sites = ["https://youtube.com"];
+	public sites = [
+		"youtube",
+		"facebook",
+		"twitter",
+		"reddit",
+		"quora",
+		"news.ycombinator",
+		"instagram",
+		"linkedin",
+		"netflix",
+		"plex",
+		"learnandgrow",
+		"twitch"
+	];
 }

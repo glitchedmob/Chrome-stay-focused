@@ -10,5 +10,16 @@ export default class Controller {
 	{
 		this.store = store;
 		this.view = view;
+		this.blockSites();
+	}
+
+	public blockSites()
+	{
+		for(let site of this.store.sites) {
+			if(window.location.href.includes(site)) {
+				this.view.addApp();
+				return;
+			}
+		}
 	}
 }
