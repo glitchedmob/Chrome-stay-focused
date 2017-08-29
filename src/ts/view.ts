@@ -4,10 +4,20 @@ export default class View {
 
 	private rootEl: Element;
 
+	private appTemplate = `
+	<div class="app-container">
+		<div class="app">
+			<h1>Blocked!</h1>
+			<p>This application has been blocked.<br>Perhaps you should try doing something productive.</p>
+		</div>
+	</div>
+	`;
+
 	public constructor()
 	{
 		this.rootEl = <Element>document.querySelector('html')
 	}
+
 	/**
 	 * Completly empties the DOM and sets the background to white
 	 */
@@ -17,6 +27,7 @@ export default class View {
 		this.rootEl.setAttribute('style', 'background-color: #FFF');
 	}
 
+
 	/**
 	 * Injects our app into the DOM
 	 */
@@ -24,7 +35,10 @@ export default class View {
 	{
 		this.emptyDOM();
 		const title = document.createElement('title');
-		title.textContent = "Blocked!";
+		title.textContent = 'Blocked!';
 		document.head.appendChild(title);
+
+		document.body.innerHTML = this.appTemplate;
 	}
+
 }

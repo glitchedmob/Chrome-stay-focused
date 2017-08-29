@@ -57,7 +57,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "dist/";
+/******/ 	__webpack_require__.p = "build/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 0);
@@ -123,6 +123,14 @@ exports.default = Store;
 Object.defineProperty(exports, "__esModule", { value: true });
 class View {
     constructor() {
+        this.appTemplate = `
+	<div class="app-container">
+		<div class="app">
+			<h1>Blocked!</h1>
+			<p>This application has been blocked.<br>Perhaps you should try doing something productive.</p>
+		</div>
+	</div>
+	`;
         this.rootEl = document.querySelector('html');
     }
     /**
@@ -138,8 +146,9 @@ class View {
     addApp() {
         this.emptyDOM();
         const title = document.createElement('title');
-        title.textContent = "Blocked!";
+        title.textContent = 'Blocked!';
         document.head.appendChild(title);
+        document.body.innerHTML = this.appTemplate;
     }
 }
 exports.default = View;

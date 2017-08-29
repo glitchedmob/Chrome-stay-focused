@@ -10,8 +10,8 @@ module.exports = {
 	devtool: "source-map",
 	output: {
 		filename: 'bundle.js',
-		path: resolve('dist/js'),
-		publicPath: "dist/"
+		path: resolve('build/js'),
+		publicPath: "build/"
 	},
 	resolve: {
     extensions: ['.ts']
