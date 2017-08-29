@@ -4,7 +4,8 @@
   "description": "A Google Chrome extension to block distracting websites",
   "main": "index.js",
   "scripts": {
-    "build": "webpack -w"
+    "dev": "webpack -w",
+    "build": "crx pack build -o dist/csf.crx -p dist/key.pem"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/glitchedmob/Chrome-stay-focused#readme",
   "devDependencies": {
+    "crx": "^3.2.1",
     "css-loader": "^0.28.4",
     "extract-loader": "^1.0.0",
     "file-loader": "^0.11.2",
