@@ -127,7 +127,7 @@ class View {
 	<div class="app-container">
 		<div class="app">
 			<h1>Blocked!</h1>
-			<p>This application has been blocked.<br>Perhaps you should try doing something productive.</p>
+			<p>This website has been blocked.<br>Perhaps you should try doing something productive.</p>
 		</div>
 	</div>
 	`;
