@@ -4,7 +4,8 @@
   "description": "A Google Chrome extension to block distracting websites",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack -w",
+    "dev": "webpack",
+    "watch": "webpack -w",
     "build": "crx pack build -o dist/csf.crx -p dist/key.pem"
   },
   "repository": {
