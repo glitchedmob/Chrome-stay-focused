@@ -15,7 +15,7 @@ export default class View {
 
 	public constructor()
 	{
-		this.rootEl = <Element>document.querySelector('html')
+		this.rootEl = qs('html');
 	}
 
 	/**
